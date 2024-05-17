@@ -5,39 +5,9 @@
 </head>
 <body>
 
-<div style="background-color: #3B705E; color: white; text-align: center; padding: 10px;">
-    Livraison offerte sur toutes vos commandes avec l’abonnement Weplement
-</div>
-
-<div class="flex justify-between items-center p-6 bg-white">
-    <div>
-        <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="w-full">
-    </div>
-    <div class="flex-grow mx-10">
-        <input type="text" placeholder="Rechercher..." class="w-32 px-4 py-2 border rounded-lg focus:outline-none">
-    </div>
-    <div class="flex space-x-4">
-        <a href="">
-            <img src="{{ asset('images/account-icon.png') }}" alt="Compte" class="w-6 h-6">
-        </a>
-
-        <a href="">
-            <img src="{{ asset('images/cart-icon.png') }}" alt="Panier" class="w-6 h-6">
-        </a>
-    </div>
-</div>
-
-<div class="bg-gray-900 text-white text-center py-4">
-    <ul class="list-none flex justify-around px-0">
-        <li class="uppercase">Santé</li>
-        <li class="uppercase">Nutrition</li>
-        <li class="uppercase">Performances</li>
-        <li class="uppercase">Vitamines et Minéraux</li>
-        <li class="uppercase">Végan</li>
-        <li class="uppercase">Régime</li>
-        <li class="uppercase">Sport</li>
-    </ul>
-</div>
+@include('front.components.pop-up')
+@include('front.components.header')
+@include('front.components.navigation')
 
 <div class="relative bg-cover bg-center text-white flex flex-col items-center justify-center py-24 px-10 object-contain"
      style="background-image: url('{{ asset('images/home-background.jpeg') }}')">
@@ -47,7 +17,7 @@
         <p class="text-base mb-8">Ne manquer plus jamais d’un complément, sans y penser une seule seconde. Choisisez,
             modifier et switcher les produits et les dates de vos abonnement sans aucun coup supplémentaire.</p>
         <div class="flex space-x-4 justify-center">
-            <button class="bg-white text-black font-bold py-2 px-4 rounded-full">Découvrir les produits</button>
+            <a href="{{ route('products-listing') }}" class="bg-white text-black font-bold py-2 px-4 rounded-full">Découvrir les produits</a>
             <button class="bg-black bg-opacity-50 text-white font-bold py-2 px-4 rounded-full border border-white">Pourquoi choisir Weplement</button>
         </div>
     </div>
