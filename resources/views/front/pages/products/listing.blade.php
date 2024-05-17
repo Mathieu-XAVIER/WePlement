@@ -26,7 +26,5 @@
 </div>
 
 @livewire('products.listing')
-
-@include('front.components.footer')
 </body>
 </html>

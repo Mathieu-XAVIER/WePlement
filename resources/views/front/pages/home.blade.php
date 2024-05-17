@@ -17,8 +17,11 @@
         <p class="text-base mb-8">Ne manquer plus jamais d’un complément, sans y penser une seule seconde. Choisisez,
             modifier et switcher les produits et les dates de vos abonnement sans aucun coup supplémentaire.</p>
         <div class="flex space-x-4 justify-center">
-            <a href="{{ route('products-listing') }}" class="bg-white text-black font-bold py-2 px-4 rounded-full">Découvrir les produits</a>
-            <button class="bg-black bg-opacity-50 text-white font-bold py-2 px-4 rounded-full border border-white">Pourquoi choisir Weplement</button>
+            <a href="{{ route('products-listing') }}" class="bg-white text-black font-bold py-2 px-4 rounded-full">Découvrir
+                les produits</a>
+            <button class="bg-black bg-opacity-50 text-white font-bold py-2 px-4 rounded-full border border-white">
+                Pourquoi choisir Weplement
+            </button>
         </div>
     </div>
 </div>
@@ -35,16 +38,25 @@
         <div class="flex justify-center">
             <img src="{{ asset('images/logo-m.png') }}" alt="Logo 1" class="w-24 h-24 rounded-full object-cover m-4">
             <img src="{{ asset('images/logo-bulk.png') }}" alt="Logo 2" class="w-24 h-24 rounded-full object-cover m-4">
-            <img src="{{ asset('images/logo-nm.png') }}" alt="Logo 3" class="w-24 h-24 rounded-full object-cover m-4  border border-blue-500">
-            <img src="{{ asset('images/logo-myprotein.png') }}" alt="Logo 4" class="w-24 h-24 rounded-full object-cover m-4">
+            <img src="{{ asset('images/logo-nm.png') }}" alt="Logo 3"
+                 class="w-24 h-24 rounded-full object-cover m-4  border border-blue-500">
+            <img src="{{ asset('images/logo-myprotein.png') }}" alt="Logo 4"
+                 class="w-24 h-24 rounded-full object-cover m-4">
         </div>
         <div class="flex justify-center space-x-4">
-            <img src="{{ asset('images/logo-nutripure.png') }}" alt="Logo 5" class="w-24 h-24 rounded-full object-cover mx-8 my-4">
-            <img src="{{ asset('images/logo-vert.png') }}" alt="Logo 6" class="w-24 h-24 rounded-full object-cover mx-8 my-4">
+            <img src="{{ asset('images/logo-nutripure.png') }}" alt="Logo 5"
+                 class="w-24 h-24 rounded-full object-cover mx-8 my-4">
+            <img src="{{ asset('images/logo-vert.png') }}" alt="Logo 6"
+                 class="w-24 h-24 rounded-full object-cover mx-8 my-4">
         </div>
     </div>
 </div>
 
+<div>
+
+</div>
+
+@include('front.components.footer')
+
 </body>
-<a href="{{ route('platform.index') }}">Accéder au back office</a>
 </html>
