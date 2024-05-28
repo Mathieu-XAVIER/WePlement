@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/produits', [\App\Http\Controllers\ProductController::class, 'index'])->name('products-listing');
+Route::get('/produits/{category}',  [\App\Http\Controllers\ProductController::class, 'index'])->name('products.filtered');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

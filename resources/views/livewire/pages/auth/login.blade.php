@@ -64,7 +64,7 @@ new #[Layout('layouts.guest')] class extends Component {
             {{ __('Connexion') }}
         </button>
         <div class="flex justify-center items-center mt-4">
-            <p>Pas encore de compte ? <a href="" class="text-[#399B7A] underline hover:text-[#399B7A]">S'inscrire ici</a></p>
+            <p>Pas encore de compte ? <a href="{{ route('register') }}" class="text-[#399B7A] underline hover:text-[#399B7A]">S'inscrire ici</a></p>
         </div>
         <div class="flex justify-center items-center">
         @if (Route::has('password.request'))
@@ -75,4 +75,4 @@ new #[Layout('layouts.guest')] class extends Component {
         @endif
         </div>
     </form>
-</div>  
+</div>

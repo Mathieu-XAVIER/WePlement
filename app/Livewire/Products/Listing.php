@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Listing extends Component
 {
+    public $category;
     const BRAND_OPTIONS = [
         'bulk' => 'Bulk',
         'myprotein' => 'MyProtein',
@@ -27,6 +28,10 @@ class Listing extends Component
 
     protected $listeners = ['searchUpdated' => 'updateSearch'];
 
+    public function mount($category = null)
+    {
+        $this->category = $category;
+    }
     public function render()
     {
         $selectedBrands = array_keys(array_filter($this->brand));

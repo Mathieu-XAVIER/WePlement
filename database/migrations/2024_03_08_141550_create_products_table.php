@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('prod_nom');
             $table->decimal('prod_prix', 8, 2);
             $table->text('prod_desc')->nullable();
-            $table->string('prod_marque');
             $table->json( 'prod_images')->nullable();
+            $table->foreignId('brand_id')->constrained()->after('prod_images');
+            $table->foreignId('category_id')->constrained()->after('brand_id');
             $table->timestamps();
         });
     }

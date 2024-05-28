@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CategoriesTableSeeder extends Seeder
@@ -13,6 +12,14 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Category::factory()->create();
+        $categories = ['Santé', 'Nutrition', 'Performances', 'Vitamines et Minéraux', 'Végan', 'Régime', 'Sport'];
+
+        foreach ($categories as $category) {
+            Category::factory()->create([
+                'cat_name' => $category,
+                'cat_slug' => strtolower(str_replace(' ', '-', $category)),
+                'cat_description' => 'Catégorie ' . $category,
+            ]);
+        }
     }
 }
