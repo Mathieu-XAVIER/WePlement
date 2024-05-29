@@ -24,8 +24,6 @@ class CategoryFactory extends Factory
         return [
             'cat_name' => $this->faker->word,
             'cat_description' => $this->faker->sentence,
-            'cat_slug' => $this->faker->slug,
-            'cat_image' => $this->faker->imageUrl(),
         ];
     }
 }

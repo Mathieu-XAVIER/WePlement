@@ -2,51 +2,51 @@
 
 namespace App\Livewire\Products;
 
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
 
 class Listing extends Component
 {
     public $category;
-    const BRAND_OPTIONS = [
-        'bulk' => 'Bulk',
-        'myprotein' => 'MyProtein',
-        'nutripure' => 'Nutripure',
-        'nutrimuscle' => 'Nutrimuscle',
-        'onatera' => 'Onatera',
-    ];
-
-    public $brand = [
-        'bulk' => false,
-        'myprotein' => false,
-        'nutripure' => false,
-        'nutrimuscle' => false,
-        'onatera' => false,
-    ];
+    public $brand = [];
 
     public $search;
 
     protected $listeners = ['searchUpdated' => 'updateSearch'];
 
-    public function mount($category = null)
+    public function mount($category_id = null)
     {
-        $this->category = $category;
+        $this->category = Category::find($category_id);
+
+        $brands = Brand::all();
+        foreach ($brands as $brand) {
+            $this->brand[$brand->id] = false;
+        }
     }
+
     public function render()
-    {
-        $selectedBrands = array_keys(array_filter($this->brand));
+{
+    $selectedBrands = array_keys(array_filter($this->brand));
 
-        $products = Product::when(!empty($selectedBrands), function ($query) use ($selectedBrands) {
-            return $query->whereIn('prod_marque', $selectedBrands);
+    $products = Product::when(!empty($selectedBrands), function ($query) use ($selectedBrands) {
+        return $query->whereIn('brand_id', $selectedBrands);
+    })
+        ->when($this->category, function ($query) {
+            return $query->where('category_id', $this->category->id);
         })
-            ->where('prod_nom', 'like', '%' . $this->search . '%')
-            ->get();
+        ->where('prod_name', 'like', '%' . $this->search . '%')
+        ->get();
 
-        return view('livewire.products.listing', [
-            'products' => $products,
-            'search' => $this->search,
-        ]);
-    }
+    $brands = Brand::all();
+
+    return view('livewire.products.listing', [
+        'products' => $products,
+        'search' => $this->search,
+        'brands' => $brands,
+    ]);
+}
 
     public function updatedSearch($search)
     {

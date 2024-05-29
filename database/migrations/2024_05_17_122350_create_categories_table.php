@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('cat_name');
             $table->string('cat_description')->nullable();
-            $table->string('cat_slug')->unique();
-            $table->string('cat_image')->nullable();
             $table->timestamps();
         });
     }

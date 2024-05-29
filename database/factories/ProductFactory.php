@@ -22,8 +22,8 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'prod_nom' => $this->faker->word,
-            'prod_prix' => $this->faker->randomFloat(2, 1, 100),
+            'prod_name' => $this->faker->word,
+            'prod_price' => $this->faker->randomFloat(2, 1, 100),
             'prod_desc' => $this->faker->sentence,
             'prod_images' => json_encode([$this->faker->imageUrl()]),
             'brand_id' => \App\Models\Brand::all()->random()->id,

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/produits', [\App\Http\Controllers\ProductController::class, 'index'])->name('products-listing');
-Route::get('/produits/{category}',  [\App\Http\Controllers\ProductController::class, 'index'])->name('products.filtered');
+Route::prefix('produits')->group(function () {
+    Route::get('/', [\App\Http\Controllers\ProductController::class, 'index'])->name('products-listing');
+    Route::get('/{category}',  [\App\Http\Controllers\ProductController::class, 'index'])->name('products.filtered');
+    Route::get('/detail/{product}', [ProductController::class, 'show'])->name('products.show');
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

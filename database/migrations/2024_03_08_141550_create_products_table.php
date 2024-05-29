@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('prod_nom');
-            $table->decimal('prod_prix', 8, 2);
+            $table->string('prod_name');
+            $table->decimal('prod_price', 8, 2);
             $table->text('prod_desc')->nullable();
             $table->json( 'prod_images')->nullable();
+            $table->json('prod_sizes')->nullable();
+            $table->json('prod_flavors')->nullable();
             $table->foreignId('brand_id')->constrained()->after('prod_images');
-            $table->foreignId('category_id')->constrained()->after('brand_id');
+            $table->foreignId('category_id')->constrained()->after('brand_id');;
             $table->timestamps();
         });
     }

@@ -12,4 +12,9 @@ class ProductController
         $categories = Category::all();
         return view('front.pages.products.listing', compact('categories'));
     }
+
+    public function show(Product $product)
+    {
+        return view('front.pages.products.show', compact('product'));
+    }
 }

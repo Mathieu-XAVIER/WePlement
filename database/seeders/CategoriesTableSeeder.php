@@ -17,7 +17,6 @@ class CategoriesTableSeeder extends Seeder
         foreach ($categories as $category) {
             Category::factory()->create([
                 'cat_name' => $category,
-                'cat_slug' => strtolower(str_replace(' ', '-', $category)),
                 'cat_description' => 'Catégorie ' . $category,
             ]);
         }
