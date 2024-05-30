@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WeShippsController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +21,12 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 
 Route::prefix('produits')->group(function () {
     Route::get('/', [\App\Http\Controllers\ProductController::class, 'index'])->name('products-listing');
-    Route::get('/{category}',  [\App\Http\Controllers\ProductController::class, 'index'])->name('products.filtered');
+    Route::get('/{category}', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.filtered');
     Route::get('/detail/{product}', [ProductController::class, 'show'])->name('products.show');
+});
+
+Route::prefix('weshipps')->middleware('auth')->group(function () {
+    Route::get('/', [WeShippsController::class, 'index'])->name('weshipps.listing');
 });
 
 Route::view('dashboard', 'dashboard')
@@ -30,4 +37,11 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::post('/logout', function (Request $request) {
+    Auth::guard('web')->logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
+})->middleware('auth')->name('logout');
+
+require __DIR__ . '/auth.php';

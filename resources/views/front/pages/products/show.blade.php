@@ -1,3 +1,3 @@
 <x-app-layout>
-    @livewire('front.pages.products.show', ['product' => $product])
+    @livewire('products.show', ['product' => $product])
 </x-app-layout>

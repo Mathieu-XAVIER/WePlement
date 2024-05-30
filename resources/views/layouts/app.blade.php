@@ -16,7 +16,10 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <livewire:layout.navigation />
+{{--            <livewire:layout.navigation />--}}
+            @include('front.components.pop-up')
+            @include('front.components.header')
+            <livewire:layout-navigation />
 
             <!-- Page Heading -->
             @if (isset($header))

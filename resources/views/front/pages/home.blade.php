@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-
-@include('front.components.pop-up')
-@include('front.components.header')
-@include('front.components.navigation')
-
+<x-app-layout>
 <div class="relative bg-cover bg-center text-white flex flex-col items-center justify-center py-24 px-10 object-contain"
      style="background-image: url('{{ asset('images/home-background.jpeg') }}')">
     <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -57,6 +47,4 @@
 </div>
 
 @include('front.components.footer')
-
-</body>
-</html>
+</x-app-layout>

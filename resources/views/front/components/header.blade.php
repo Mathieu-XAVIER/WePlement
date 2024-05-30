@@ -12,11 +12,11 @@
         </script>
     </div>
     <div class="flex space-x-4">
-        <a href="{{ route('dashboard') }}">
+        <a href="{{ route('profile') }}">
             <img src="{{ asset('images/icone-compte.png') }}" alt="Compte" class="w-6 h-6">
         </a>
 
-        <a href="">
+        <a href="{{ route('weshipps.listing') }}">
             <img src="{{ asset('images/icone-panier.png') }}" alt="Panier" class="w-6 h-6">
         </a>
     </div>

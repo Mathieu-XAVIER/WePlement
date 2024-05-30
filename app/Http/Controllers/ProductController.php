@@ -13,8 +13,9 @@ class ProductController
         return view('front.pages.products.listing', compact('categories'));
     }
 
-    public function show(Product $product)
+    public function show($id)
     {
+        $product = Product::find($id);
         return view('front.pages.products.show', compact('product'));
     }
 }

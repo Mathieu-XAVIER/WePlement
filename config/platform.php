@@ -191,23 +191,6 @@ return [
 
     /*
      |--------------------------------------------------------------------------
-     | Icons Path
-     |--------------------------------------------------------------------------
-     |
-     | Provide the path from your app to your SVG icons directory. This configuration
-     | permits you to specify the location of your SVG icons, which can be used in
-     | various parts of the application.
-     |
-     | Example: ['fa' => storage_path('app/fontawesome')]
-     |
-     */
-
-    'icons' => [
-        'bs'  => \Orchid\Support\BootstrapIconsPath::getFolder(),
-    ],
-
-    /*
-     |--------------------------------------------------------------------------
      | Notifications
      |--------------------------------------------------------------------------
      |

@@ -13,7 +13,5 @@ class Category extends Model
     protected $fillable = [
         'cat_name',
         'cat_description',
-        'cat_slug',
-        'cat_image',
     ];
 }
