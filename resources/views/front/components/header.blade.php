@@ -1,6 +1,8 @@
 <div class="flex justify-between items-center p-6 bg-white">
     <div>
-        <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="w-full">
+        <a href="{{ route('home') }}">
+            <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="w-full">
+        </a>
     </div>
     <div class="flex-grow mx-10 flex justify-center">
         <input wire:model.live="search" type="text" placeholder="Rechercher..."

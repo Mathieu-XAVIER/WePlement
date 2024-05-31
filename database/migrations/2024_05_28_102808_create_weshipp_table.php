@@ -10,16 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('weshipp', function (Blueprint $table) {
-            $table->id();
-            $table->string('we_name');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('subscription_type');
-            $table->json('product_ids')->nullable();
-            $table->integer('recurrence_frequency')->nullable();
-            $table->timestamps();
-        });
+            Schema::create('weshipp', function (Blueprint $table) {
+                $table->id();
+                $table->string('we_name');
+                $table->date('start_date');
+                $table->date('end_date');
+                $table->string('subscription_type');
+                $table->json('product_ids')->nullable();
+                $table->integer('recurrence_frequency')->nullable();
+                $table->timestamps();
+            });
     }
 
     /**
