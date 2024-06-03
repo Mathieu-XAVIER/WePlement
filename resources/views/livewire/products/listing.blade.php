@@ -1,4 +1,4 @@
-<div class="grid grid-cols-5 gap-4 mx-8">
+<div class="grid grid-cols-5 gap-4 mx-8 mt-16">
     <div class="col-span-1">
         <h2 class="text-2xl font-bold mb-4">Filtrer par</h2>
         <div class="mb-4">
@@ -20,6 +20,51 @@
                 @endforeach
             </div>
         </div>
+        <div class="mb-4">
+            <label for="brand" class="block cursor-pointer text-lg font-bold flex items-center">
+                Prix
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                     class="h-4 w-4 ml-2 transform transition-transform duration-200" id="brandArrow">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </label>
+        </div>
+        <div class="mb-4">
+            <label for="brand" class="block cursor-pointer text-lg font-bold flex items-center">
+                Taille
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                     class="h-4 w-4 ml-2 transform transition-transform duration-200" id="brandArrow">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </label>
+        </div>
+        <div class="mb-4">
+            <label for="brand" class="block cursor-pointer text-lg font-bold flex items-center">
+                Saveur
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                     class="h-4 w-4 ml-2 transform transition-transform duration-200" id="brandArrow">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </label>
+        </div>
+        <div class="mb-4">
+            <label for="brand" class="block cursor-pointer text-lg font-bold flex items-center">
+                Type
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                     class="h-4 w-4 ml-2 transform transition-transform duration-200" id="brandArrow">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </label>
+        </div>
+        <div class="mb-4">
+            <label for="brand" class="block cursor-pointer text-lg font-bold flex items-center">
+                Notation
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                     class="h-4 w-4 ml-2 transform transition-transform duration-200" id="brandArrow">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </label>
+        </div>
     </div>
 
     <script>
@@ -37,7 +82,7 @@
             @foreach($products as $product)
                 <a href="{{ route('products.show', ['product' => $product->id]) }}">
                     <div class="overflow-hidden px-4 my-3">
-                        <img src="{{ asset('images/img-test-produit.jpg') }}" alt="{{ $product->prod_name }}"
+                        <img src="{{ asset('images/produit-bulk.png') }}" alt="{{ $product->prod_name }}"
                              class="w-full h-64 object-cover">
                         <div class="p-4">
                             <div class="inline-block rounded-full px-3 py-1 text-sm border border-black">
@@ -49,6 +94,12 @@
                     </div>
                 </a>
             @endforeach
+        </div>
+        <div class="my-8 text-center">
+            {{ $products->links('vendor.livewire.simple-tailwind') }}
+            <div class="mt-4">
+                Showing {{ $products->firstItem() }} to {{ $products->lastItem() }} of {{ $products->total() }} results
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BackOfficeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WeShippsController;
 use Illuminate\Http\Request;
@@ -43,5 +44,9 @@ Route::post('/logout', function (Request $request) {
     $request->session()->regenerateToken();
     return redirect('/');
 })->middleware('auth')->name('logout');
+
+Route::middleware(['auth', 'role'])->group(function () {
+    Route::get('/backoffice', [BackOfficeController::class, 'index'])->name('backoffice');
+});
 
 require __DIR__ . '/auth.php';

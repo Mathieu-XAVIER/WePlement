@@ -6,10 +6,14 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Listing extends Component
 {
+    use WithPagination;
+
     public $category;
+
     public $brand = [];
 
     public $search;
@@ -37,7 +41,7 @@ class Listing extends Component
             return $query->where('category_id', $this->category->id);
         })
         ->where('prod_name', 'like', '%' . $this->search . '%')
-        ->get();
+        ->paginate(8);
 
     $brands = Brand::all();
 

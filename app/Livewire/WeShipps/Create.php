@@ -61,6 +61,7 @@ class Create extends Component
 
     public function toggleCreateForm()
     {
-        $this->redirect(route('weshipps.listing'));
+        $this->redirect(route('weshipps.listing
+        '));
     }
 }

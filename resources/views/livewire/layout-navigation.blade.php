@@ -2,7 +2,7 @@
     <ul class="list-none flex justify-around px-0">
         @foreach($categories as $category)
             <li class="uppercase">
-                <a href="">
+                <a href="{{ route('products-listing') }}">
                     {{ $category->cat_name }}
                 </a>
             </li>
