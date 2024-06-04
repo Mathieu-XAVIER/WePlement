@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'prod_name' => $this->faker->word,
             'prod_price' => $this->faker->randomFloat(2, 1, 100),
             'prod_desc' => $this->faker->sentence,
-            'prod_images' => json_encode([$this->faker->imageUrl()]),
+            'prod_images' => $this->faker->imageUrl(),
             'brand_id' => \App\Models\Brand::all()->random()->id,
             'category_id' => \App\Models\Category::all()->random()->id,
         ];
