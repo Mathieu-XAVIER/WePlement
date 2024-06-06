@@ -29,4 +29,9 @@ class Weshipp extends Model
     {
         return Product::whereIn('id', $this->product_ids)->get();
     }
+
+    public function delivery_address()
+    {
+        return $this->hasOne(DeliveryAdress::class, 'id', 'address_id');
+    }
 }

@@ -9,11 +9,12 @@ use Livewire\Component;
 class Create extends Component
 {
     public $we_name;
+
     public $start_date;
     public $end_date;
     public $subscription_type = 'weflex';
     public  $product_ids = [1,2,3];
-    public $recurrence_frequency = 1 ;
+    public $recurrence_frequency;
 
     public function mount()
     {
@@ -47,6 +48,7 @@ class Create extends Component
         Weshipp::create([
             'we_name' => $this->we_name,
             'user_id' => auth()->id(),
+            'is_active' => true,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
             'subscription_type' => $this->subscription_type,

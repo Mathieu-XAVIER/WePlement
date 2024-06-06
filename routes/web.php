@@ -28,6 +28,7 @@ Route::prefix('produits')->group(function () {
 
 Route::prefix('weshipps')->middleware('auth')->group(function () {
     Route::get('/', [WeShippsController::class, 'index'])->name('weshipps.listing');
+    Route::get('/{weshipp}', [WeShippsController::class, 'show'])->name('weshipps.show');
 });
 
 Route::view('dashboard', 'dashboard')

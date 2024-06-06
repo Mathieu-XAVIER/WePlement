@@ -36,6 +36,8 @@
             </button>
         </div>
     </div>
+
+
     @if($showModal)
         <div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
             <div class="bg-white p-6 rounded shadow-lg max-w-4xl mx-auto text-center relative">
@@ -50,31 +52,23 @@
                 <h2 class="text-2xl mb-6 text-gray-700 font-semibold">Ajouter à un WeShipp</h2>
                 <p class="text-gray-600 mb-6">Ajouter ce produit à un ou plusieurs WeShipp ou créée en un nouveau</p>
                 <div class="flex mt-6">
-                    <div class="mb-6 border border-gray-300 rounded-lg p-6 mx-12">
-                        <p class="text-gray-700">Livraison : 14-16 mai</p>
-                        <p class="text-gray-700">Focus hair</p>
-                        <p class="text-gray-700">récurrence: 17 jours</p>
-                        <div class="flex space-x-2 flex-row">
-                            <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
-                            <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
-                            <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
-                        </div>
-                        <a href="#" class="text-blue-500 hover:underline">Ajouter à ce WeShipp</a>
-                    </div>
-                    <div class="mb-6 border border-gray-300 rounded-lg p-6 mx-12">
-                        <p class="text-gray-700">Livraison : 14-16 mai</p>
-                        <p class="text-gray-700">Focus hair</p>
-                        <p class="text-gray-700">récurrence: 17 jours</p>
-                        <div class="flex space-x-2 flex-row">
-                            <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
-                            <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
-                            <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
-                        </div>
-                        <a href="#" class="text-blue-500 hover:underline">Ajouter à ce WeShipp</a>
-                    </div>
+                    @foreach($weshipps as $weshipp)
+                        <div class="mb-6 border border-gray-300 rounded-lg p-6 mx-12">
+                            <p class="text-gray-700">Livraison : </p>
+                            <p class="text-gray-700">{{ $weshipp->we_name }}</p>
+                            <p class="text-gray-700">récurrence: {{ $weshipp->recurrence_frequency	 }}</p>
+                            <div class="flex space-x-2 flex-row">
+                                <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
+                                <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
+                                <img class="w-16 h-16" src="{{ asset('images/produit-bulk.png') }}">
+                            </div>
+                            <a href="#" wire:click.prevent="addToWeShipp({{ $weshipp->id }}, {{ $product->id }})"
+                               class="text-blue-500 hover:underline">Ajouter à ce WeShipp</a></div>
+                    @endforeach
                 </div>
                 <div class="flex justify-center items-center">
-                    <a wire:click="toggleCreateForm" class="w-1/2 bg-[#399B7A] rounded-full flex items-center justify-center py-2 px-4 mx-8">
+                    <a wire:click="toggleCreateForm"
+                       class="w-1/2 bg-[#399B7A] rounded-full flex items-center justify-center py-2 px-4 mx-8">
                         <img class="w-6 h-6" src="{{ asset('images/icone-panier.png') }}" alt="Cart Icon">
                         <span class="ml-2">Créer un nouveau WeShipp ?</span>
                     </a>
